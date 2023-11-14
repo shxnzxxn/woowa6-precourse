@@ -2,14 +2,14 @@ package christmas.DTO;
 
 import java.text.DecimalFormat;
 
-public class SalesDto {
+public class SaleDto {
     private Integer christmasSalePrice;
     private Integer presentSalePrice;
     private Integer weekdaySalePrice;
     private Integer weekendSalePrice;
     private Integer specialSalePrice;
 
-    public SalesDto(Integer christmasSalePrice, Integer presentSalePrice, Integer weekdaySalePrice, Integer weekendSalePrice, Integer specialSalePrice) {
+    public SaleDto(Integer christmasSalePrice, Integer presentSalePrice, Integer weekdaySalePrice, Integer weekendSalePrice, Integer specialSalePrice) {
         this.christmasSalePrice = christmasSalePrice;
         this.presentSalePrice = presentSalePrice;
         this.weekdaySalePrice = weekdaySalePrice;
