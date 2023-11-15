@@ -33,7 +33,7 @@ public class WeekendSale {
 
         for (MenuDto menu : menuToOrder) {
             if(menu.getMenu().getDishType().equals(MENU_TYPE_CRITERIA)){
-                salePrice += SALE_PRICE;
+                salePrice += (SALE_PRICE*menu.getAmount());
             }
         }
 
