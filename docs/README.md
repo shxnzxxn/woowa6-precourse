@@ -5,8 +5,7 @@
 
 ### OutputView
     - showGreeting : "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다." 출력
-    - showStartDetail : "OO월 OO일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!" 출력
-    - showOrderMenus : 주문 메뉴 리스트 출력
+    - showStartDetail : "OO월 OO일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!" 출력, 주문 메뉴 리스트 출력
     - showPriceBeforeSale : 할인 전 총주문 금액 출력
     - showPresentMenu : 증정 메뉴 출력
     - showBenefits : 혜택 내역 출력

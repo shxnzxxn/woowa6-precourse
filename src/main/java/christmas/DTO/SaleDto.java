@@ -72,14 +72,27 @@ public class SaleDto {
         return "";
     }
 
+    /**
+     * 증정 상품 금액을 포함한 할인 금액 계산
+     * @return 증정 상품 금액을 포함한 할인 금액
+     */
     public Integer getWholeSalePrice(){
         return christmasSalePrice + presentSalePrice + weekdaySalePrice + weekendSalePrice + specialSalePrice;
     }
 
+    /**
+     * 증정 상품을 제외한 할인 금액 계산
+     * @return 증정 상품을 제외한 할인 금액
+     */
     public Integer getSalePriceWithoutPresent() {
         return christmasSalePrice + weekdaySalePrice + weekendSalePrice + specialSalePrice;
     }
 
+    /**
+     * 구분점 찍기
+     * @param price 금액
+     * @return 구분점이 포함된 금액
+     */
     private String putDividingPoint(Integer price){
         DecimalFormat decFormat = new DecimalFormat("###,###");
         return decFormat.format(price);

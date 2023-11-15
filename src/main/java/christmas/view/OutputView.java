@@ -12,11 +12,8 @@ public class OutputView {
         System.out.println("안녕하세요! 우테코 식당 " + month + "월 이벤트 플래너입니다.");
     }
 
-    public void showStartDetail(LocalDate dateOfVisit){
+    public void showDetailInfo(LocalDate dateOfVisit, List<MenuDto> menuToOrder){
         System.out.println(dateOfVisit.getMonthValue() + "월 " + dateOfVisit.getDayOfMonth() + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
-    }
-
-    public void showOrderMenus(List<MenuDto> menuToOrder) {
         System.out.println("<주문 메뉴>");
         menuToOrder.forEach(System.out::println);
         System.out.println();
@@ -52,6 +49,11 @@ public class OutputView {
         System.out.println(badge);
     }
 
+    /**
+     * 구분점 찍기
+     * @param price 주문 금액
+     * @return 구분점 찍힌 금액
+     */
     private String putDividingPoint(Integer price){
         DecimalFormat decFormat = new DecimalFormat("###,###");
         return decFormat.format(price);

@@ -22,6 +22,10 @@ public class ChristmasController {
         this.inputJudgement = inputJudgement;
     }
 
+    /**
+     * 방문 날짜 입력 받기
+     * @return 방문 날짜
+     */
     public LocalDate inputDateOfVisit() {
         outputView.showGreeting(EVENT_MONTH);
         Optional<String> inputDateOfVisitBeforeJudgement = inputView.readVisitDate();
@@ -36,6 +40,10 @@ public class ChristmasController {
         return LocalDate.of(EVENT_YEAR, EVENT_MONTH, dateOfVisit);
     }
 
+    /**
+     * 주문 메뉴 입력 받기
+     * @return 입력받은 주문 메뉴 리스트
+     */
     public List<MenuDto>  inputMenuToOrder() {
         Optional<String> inputMenuToOrderBeforeJudgement = inputView.readOrderMenu();
         List<MenuDto> inputMenu;
@@ -49,9 +57,13 @@ public class ChristmasController {
         return inputMenu;
     }
 
+    /**
+     * 할인 정보 계산
+     * @param dateOfVisit 방문 날짜
+     * @param menuToOrder 주문 메뉴
+     */
     public void calculateSaleDetail(LocalDate dateOfVisit, List<MenuDto> menuToOrder) {
-        outputView.showStartDetail(dateOfVisit);
-        outputView.showOrderMenus(menuToOrder);
+        outputView.showDetailInfo(dateOfVisit, menuToOrder);
 
         Integer wholePrice = countWholePrice(menuToOrder);
         outputView.showPriceBeforeSale(wholePrice);
@@ -72,6 +84,13 @@ public class ChristmasController {
         outputView.showEventBadge(dateOfVisit, badge);
     }
 
+    /**
+     * 할인 정보 계산
+     * @param wholePrice 할인 전 금액
+     * @param dateOfVisit 방문 날짜
+     * @param menuToOrder 주문 메뉴
+     * @return 할인 정보
+     */
     private SaleDto calculateSalePrice(Integer wholePrice, LocalDate dateOfVisit, List<MenuDto> menuToOrder) {
         Integer christmasSalePrice = ChristmasSale.getChristmasSalePrice(wholePrice, dateOfVisit);
         Integer salePrice = PresentSale.getSalePrice(wholePrice);
@@ -82,6 +101,11 @@ public class ChristmasController {
         return new SaleDto(christmasSalePrice, salePrice, weekdaySalePrice, weekendSalePrice, specialSalePrice);
     }
 
+    /**
+     * 전체 금액 계산
+     * @param menuToOrder 주문 메뉴
+     * @return 주문 메뉴에 따른 전체 금액
+     */
     private Integer countWholePrice(List<MenuDto> menuToOrder) {
         return menuToOrder.stream().mapToInt(MenuDto::getWholePrice).sum();
     }

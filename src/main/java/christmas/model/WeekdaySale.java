@@ -27,6 +27,11 @@ public class WeekdaySale {
         return calculateWeekdaySale(menuToOrder);
     }
 
+    /**
+     * 평일 할인에 대한 할인 금액 계산
+     * @param menuToOrder 주문 메뉴
+     * @return 디저트 메뉴에 따른 할인 금액 계산
+     */
     private static Integer calculateWeekdaySale(List<MenuDto> menuToOrder) {
         Integer salePrice = 0;
 
