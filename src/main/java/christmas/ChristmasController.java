@@ -56,7 +56,7 @@ public class ChristmasController {
         Integer wholePrice = countWholePrice(menuToOrder);
         outputView.showPriceBeforeSale(wholePrice);
 
-        MenuDto presentMenu = PresentSale.getMenu(wholePrice);
+        MenuDto presentMenu = PresentSale.getPresentMenu(wholePrice);
         outputView.showPresentMenu(presentMenu);
 
         SaleDto saleDto = calculateSalePrice(wholePrice, dateOfVisit, menuToOrder);
