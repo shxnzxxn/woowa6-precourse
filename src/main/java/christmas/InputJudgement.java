@@ -10,11 +10,8 @@ public class InputJudgement {
     private static final Integer MAX_ORDER_AMOUNT = 20;
 
     public Integer judgeInputDateOfVisitFormatIsValid(Optional<String> dateOfVisit) throws IllegalArgumentException {
-        // 1. 입력값이 null인지 확인
         String inputDateOfVisit = dateOfVisit.orElse("NULL");
-        // 2. 입력값이 숫자인지 확인
         Integer inputDate = isTypeInteger(inputDateOfVisit);
-        // 3. 입력값이 범위 내에 있는지 확인
         isInTheRange(inputDate);
 
         return inputDate;
@@ -34,7 +31,7 @@ public class InputJudgement {
         }
     }
 
-    public List<MenuDto>  judgeInputMenuFormatIsValid(Optional<String> inputMenu) throws IllegalArgumentException {
+    public List<MenuDto> judgeInputMenuFormatIsValid(Optional<String> inputMenu) throws IllegalArgumentException {
         String inputMenuToOrderOffOptional = inputMenu.orElse("NULL");
         List<String> inputMenusBeforeJudgement = splitInputByComma(inputMenuToOrderOffOptional);
         List<MenuDto> inputMenusToOrderAfterJudgement = checkEachInputMenuFormat(inputMenusBeforeJudgement);
